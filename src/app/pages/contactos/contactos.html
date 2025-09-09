@@ -7,10 +7,24 @@
         <span>Grupos</span>
         <span>Acciones</span>
 
-        @for (contacto of contacts; track $index) 
-        
+        @for (contacto of contactsservice.contacto; track $index) 
         {
             <app-lista-de-contactos [contact]="contacto"></app-lista-de-contactos>
         }
     </div>
 </section>
+
+
+<form (ngSubmit)="createContact(newContactForm.value)" #newContactForm="ngForm">
+    <div>
+        <input type="text" name="name" id="first-name" ngModel>
+        <input type="text" name="lastname" id="first-name" ngModel>
+        <input type="text" name="address" id="first-name" ngModel>
+        <input type="text" name="email" id="first-name" ngModel>
+        <input type="text" name="number" id="first-name" ngModel>
+        <input type="text" name="company" id="first-name" ngModel>
+        <button>+</button>
+    </div>
+
+
+     

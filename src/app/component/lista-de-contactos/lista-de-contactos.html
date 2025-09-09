@@ -1,5 +1,4 @@
 
-
             <li>
                 <span>{{contact().id}}</span>
                 <span>{{contact().name}}</span>
@@ -8,4 +7,5 @@
                 <span>{{contact().email}}</span>
                 <span>{{contact().number}}</span>
                 <span>{{contact().company}}</span>
+                <span><button (click)="contactservice.deleteContact(contact().id)">borrar</button></span>
             </li> 

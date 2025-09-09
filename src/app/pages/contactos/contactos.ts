@@ -1,43 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ListaDeContactos } from '../../component/lista-de-contactos/lista-de-contactos';
-import { Contact } from '../../interfaces/contact';
+import { FormsModule } from '@angular/forms';
+import { ContatcsService } from '../../services/contatcs-service';
 
 @Component({
   selector: 'app-contactos',
-  imports: [RouterModule,ListaDeContactos],
+  imports: [RouterModule,ListaDeContactos,FormsModule],
   templateUrl: './contactos.html',
   styleUrl: './contactos.scss'
 })
 export class Contactos {
 
-  contacts: Contact [] = [
+  contactsservice = inject(ContatcsService)
 
-    {
-      id : "1",
-      name : "Juan",
-      lastname : "Novarino",
-      address : "Laprida 5477",
-      email: "juasnovarino2005@gmail.com",
-      number: "+543416997685",
-      company: "austral",
-    },
-
-    {
-        id : "2",
-        name : "Agustin",
-        lastname : "Ricci",
-        address : "San Martin 5477",
-        email: "agusricci2008@gmail.com",
-        number: "+543416887963",
-        company: "San Jose",
-    }
-
-
-  ]
-
+  createContact(form:any){
+    let name=form.name
+    let lastname=form.lastname
+    let address=form.address
+    let email=form.email
+    let number=form.number
+    let company=form.company
+    this.contactsservice.createContact(name,lastname,address,email,number,company)
+  }
+     
+  }
   
 
 
 
-}
+
+
+
