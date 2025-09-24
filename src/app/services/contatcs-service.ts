@@ -36,11 +36,16 @@ export class ContatcsService {
   getContactById(){
 
   }
-  createContact(name : string, lastname : string, address : string, email: string, number: string, company: string ){
+  createContact(id : string, name : string, lastname : string, address : string, email: string, number: string, company: string ){
+
+    const newId = this.contacto.length > 0
+    ? Math.max(...this.contacto.map(c => Number(c.id))) + 1
+    : 1;
 
     const newcontacto:Contact =
     {
-      id: "1",
+
+      id: newId.toString(),
       name:name,
       lastname:lastname,
       address:address,

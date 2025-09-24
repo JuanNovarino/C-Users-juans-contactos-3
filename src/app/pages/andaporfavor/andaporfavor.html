@@ -1,36 +1,40 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-        
-
-        <section class="contenedor-tarjeta">
+        <section class="contenedor-tarjeta centrado">
 
             
             <div class="tarjeta">
                 <h2>Bienvenido</h2>
                 <img src="imagenlogin.webp" alt="">
-                
-                <form action="/andaporfavor"></form> 
-                <label for="Usuario">Usuario:</label>
-                <input type="text" id="Usuario" name="Usuario">
+                <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
 
-                <form action="/andaporfavor"></form>
-                <label for="Contraseña">Contraseña:</label>
-                <input type="text" id="Contraseña" name="Contraseña">
-                
-                <p>¿No tenes cuenta?</p> <a href="registro">Registrate.</a>
+                <div>
+                    <label for="email">Correo electrónico</label>
+                    <input id="email" name="email" type="email" id="email" ngModel #email="ngModel" required="true" autocomplete="email">
+                    @if (email.invalid && !email.pristine) {
+                      <p class="error">Debe colocar un correo electrónico.</p>
+                    } 
+                </div>    
 
-            </div>
-        </section>
-    
-</body>
-</html>
+                <div>
+                    <label for="password">Contraseña</label>
+                    <input id="password" name="password" type="password" ngModel #password="ngModel" minlength="4" autocomplete="current-password">
+                    @if (password.invalid && !password.pristine) {
+                      <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
+                    } 
+                </div>
+                <button [disabled]="isLoading || loginForm.invalid">Iniciar sesión</button>
+                <!--  @if(isLoading){
+                    <app-spinner></app-spinner>
+                } -->
+                @if (errorLogin) {
+                    <p class="error">Datos de sesión incorrectos, intente nuevamente.</p>
+                } 
+                <p>No tenés cuenta? <a routerLink="/register">Registrate</a></p>
+                </form>
+
+                <a routerLink="/">Home</a>      
+                
+        <section>
 
 
 

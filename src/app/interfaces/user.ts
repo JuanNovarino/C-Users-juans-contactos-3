@@ -3,6 +3,8 @@ export interface User{
     /**id del usuario */
     firstName : string,
     lastName : string,
-    userName: string,
+    email: string,
     password: string,
 }
+
+export type NewUser = Omit<User,"id">;

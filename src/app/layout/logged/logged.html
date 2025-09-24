@@ -1,9 +1,37 @@
 <p>logged works!</p>
-<div>
+<section id="ubicacion-sidebar">
+
+    <div class="sidebar">
+        <ul>
+
+        <li><a routerLink="andaporfavor">Login</a></li>
+
+        <li><a routerLink="contactos">Contactos</a></li>
+
+        <li><a routerLink="detalles-contactos">Detalles</a></li>
+
+        <li><a routerLink="registro">Registrarse</a></li>
+
+        </ul>
+    </div>
+
+    <main class="content">
+        
+        <router-outlet></router-outlet>
+
+    </main>
+ 
+</section>
+<section>
+
+   <div>
     <nav>
         <a routerLink = "Contactos">Contactos</a>
         <a routerLink = "Grupos">Grupos</a>
+        <button (click)="AuthService.logout()">Log Out</button>
     </nav>
-</div>
+</div> 
+</section>
+
 <router-outlet/>
 

@@ -15,13 +15,14 @@ export class Contactos {
   contactsservice = inject(ContatcsService)
 
   createContact(form:any){
+    let id = ""
     let name=form.name
     let lastname=form.lastname
     let address=form.address
     let email=form.email
     let number=form.number
     let company=form.company
-    this.contactsservice.createContact(name,lastname,address,email,number,company)
+    this.contactsservice.createContact(id,name,lastname,address,email,number,company)
   }
      
   }

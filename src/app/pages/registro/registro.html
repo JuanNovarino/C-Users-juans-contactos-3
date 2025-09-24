@@ -1,42 +1,53 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
     <section class="contenedor-tarjeta">
 
+        <h2>Registrarse</h2>
+        <form #registerForm="ngForm" (ngSubmit)="registro(registerForm)">
          <div class="tarjeta">
-        
-                <form action="/registro"></form> 
-                <label for="Usuario">Usuario:</label>
-                <input type="text" id="Usuario" name="Usuario">
 
-                <form action="/registro"></form>
-                <label for="Contraseña">Contraseña:</label>
-                <input type="text" id="Contraseña" name="Contraseña">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" id="email" ngModel #email="ngModel" required="true" autocomplete="email">
+            @if (email.invalid && !email.pristine) {
+                <p class="error">Debe colocar un correo electrónico.</p>
+            }
+         </div>
+         <div>
+            <label for="firstName">Nombre</label>
+            <input id="firstName" name="firstName" type="text" id="firstName" ngModel #firstName="ngModel" required="true" autocomplete="given-name">
+            @if (firstName.invalid && !firstName.pristine) {
+               <p class="error">Este campo es obligatorio.</p>
+            }
+         </div>
+         <div>
+            <label for="lastName">Apellido</label>
+            <input id="lastName" name="lastName" type="lastName" id="lastName" ngModel #lastName="ngModel" required="true" autocomplete="family-name">
+            @if (lastName.invalid && !lastName.pristine) {
+                <p class="error">Este campo es obligatorio.</p>
+            }
+         </div>
+         <div>
+              <label for="password">Contraseña</label>
+              <input id="password" name="password" type="password" ngModel #password="ngModel" minlength="4" autocomplete="new-password">
+              @if (password.invalid && !password.pristine) {
+                  <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
+              }
+         </div>
+         <div>
+            <label for="password">Repite la contraseña</label>
+            <input id="password2" name="password2" type="password" ngModel #password2="ngModel" minlength="4" autocomplete="new-password">
+            @if (password.invalid && !password.pristine) {
+                <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
+            }
+         </div>
+         <button [disabled]="isLoading || registerForm.invalid">Iniciar sesión</button>
+        <!-- @if(isLoading){
+         <app-spinner></app-spinner>
+         } --> 
+        @if (errorRegister) {
+        <p class="error">Error indeterminado, intente nuevamente.</p>
+        } 
+        <p>Ya tenés cuenta? <a routerLink="/andaporfavor">Inicia sesion</a> </p>
+    </form>
 
-                
-                <form action="/registro"></form>
-                <label for="Nombre">Nombre::</label>
-                <input type="text" id="Nombre" name="Nombre">
-
-                
-                <form action="/registro"></form>
-                <label for="Apellido">Apellido:</label>
-                <input type="text" id="Apellido" name="Apellido">
-
-                
-                <form action="/registro"></form>
-                <label for="Telefono">Telefono:</label>
-                <input type="text" id="Telefono" name="Telefono">
-
-                
-
-            </div>
+    <a routerLink="/">Home</a>
     </section>
-</body>
-</html>
