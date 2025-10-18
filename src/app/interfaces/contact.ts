@@ -2,12 +2,12 @@ export interface Contact{
     id: string,
     name: string,
     lastname: string,
-    address: string
+    address: string,
     email: string,
-    //image
+    imageurl: string,
     number: string,
     company: string,
-    //isFavourite: boolean
+    isFavourite: boolean,
 
 }
 
