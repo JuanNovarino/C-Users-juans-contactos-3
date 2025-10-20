@@ -14,19 +14,30 @@ export class NuevoContactoEditado implements OnInit {
 
   contactsService = inject(ContatcsService);
    router = inject(Router)
-    errorEnBack = false;
-   idContacto = input<string>(); //cambie tipo de dato number por tipo de dato string
-    contactoOriginal:Contact|undefined = undefined;
+   //errorEnBack = false;
+   idContacto = input<number>(); //cambie tipo de dato number por tipo de dato string
+   contactoOriginal:Contact|undefined = undefined;
    form = viewChild<NgForm>('newContactForm');
-   isLoading = false;
+   //isLoading = false;
 
+  /*
    private cleanValue(value: any): any {
     if (typeof value === 'string' && value.trim() === '') {
       return null;
     }
     return value;
   }
-  
+
+  private cleanNumberToString(value: string | number | null): string | null {
+        if (!value) return null;
+        
+        // Convertir a string y eliminar caracteres no numéricos
+        const cleanString = String(value).replace(/\D/g, ''); 
+        
+        // Devolver null si queda vacío, sino devolver la cadena limpia
+        return cleanString === '' ? null : cleanString;
+    }
+  */
   async ngOnInit() {
     if(this.idContacto()){
       this.contactoOriginal = await this.contactsService.getContactById(this.idContacto()!);
@@ -46,37 +57,38 @@ export class NuevoContactoEditado implements OnInit {
 
   /** Revisa si estamos editando o creando un contacto y ejecuta la función correspondiente del servicio de contactos */
   async handleFormSubmission(form:NgForm){
-    this.errorEnBack = false;
+   // this.errorEnBack = false;
     const nuevoContacto: NewContact ={
       name: form.value.name,
-      lastname:this.cleanValue(form.value.lastname), //quede por corregir aca
-      address: this.cleanValue(form.value.address),
-      email: this.cleanValue(form.value.email),
-      imageurl: this.cleanValue(form.value.imageurl),
+      lastname:form.value.lastname, //quede por corregir aca
+      address: form.value.address,
+      email: form.value.email,
+      imageurl: form.value.imageurl,
       number: form.value.number,
-      company: this.cleanValue(form.value.company),
-      isFavourite: !!form.value.isFavourite 
+      company: form.value.company,
+      isFavourite:form.value.isFavourite === true,
     }
 
     console.log("--- Objeto Nuevo Contacto Enviado ---");
     console.log(nuevoContacto); // <-- Imprime el objeto completo
 
-    let res;
-    // const res = await this.contactsService.createContact(nuevoContacto);
+    //let res;
+    //// const res = await this.contactsService.createContact(nuevoContacto);
+    //this.isLoading = true;
 
-    this.isLoading = true;
     if(this.idContacto()){
-      res = await this.contactsService.editContact({...nuevoContacto,id:this.idContacto()!})
-    } else {
-      res = await this.contactsService.createContact(nuevoContacto);
-    }
-    this.isLoading = false;
+      await this.contactsService.editContact({...nuevoContacto, id: this.idContacto()!.toString()});
+       if (this.contactoOriginal?.isFavourite !== nuevoContacto.isFavourite) {
+        await this.contactsService.setFavourite(this.idContacto()!);
+          }
 
-    if(!res) {
-      this.errorEnBack = true;
-      return
-    };
-    this.router.navigate(["/contacts",res.id]);
+        //  } else {
+        //      const contactoCreado = await this.contactsService.createContact(nuevoContacto);
+         //     if (nuevoContacto.isFavourite === true) {
+               // await this.contactsService.setFavourite(contactoCreado.id);
+          //    }
+      }
+    this.router.navigate(["/"]);
   }
 
 }

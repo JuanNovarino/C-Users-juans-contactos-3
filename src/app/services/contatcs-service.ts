@@ -42,6 +42,11 @@ export class ContatcsService {
   
   /** Crea un contacto */
   async createContact(nuevoContacto:NewContact) {
+    //Diagnostico del token
+    console.log("--- TOKEN USADO EN POST ---");
+    console.log(this.authService.token);
+    console.log("---------------------------");
+
     const res = await fetch(this.URL_BASE, 
       {
         method:"POST",

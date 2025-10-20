@@ -9,10 +9,10 @@
     </div>
     <ul>
 
-        @for (contacto of contactsService.contacto; track $index) 
+        @for (contactoindividual of contactsService.contacto; track $index) 
         {
-            <a [routerLink]="['/contactos',contacto.id]">
-                <app-lista-de-contactos [contact]="contacto"></app-lista-de-contactos>
+            <a [routerLink]="['/contacts',contactoindividual.id]">
+                <app-lista-de-contactos [contact]="contactoindividual"></app-lista-de-contactos>
             </a>
         }
     </ul>

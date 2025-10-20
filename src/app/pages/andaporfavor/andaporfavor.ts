@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'app-andaporfavor',
-  imports: [RouterModule, FormsModule,], //spinner
+  imports: [RouterModule, FormsModule,], //   spinner
   templateUrl: './andaporfavor.html',
   styleUrl: './andaporfavor.scss'
 })

@@ -2,6 +2,13 @@
   width: 220px;
   background:#ff0092;
   padding: 20px;
+  
+}
+.flex{
+    display: flex;
+}
+main{
+    width:80%;
 }
 
 .sidebar h2{
@@ -17,6 +24,6 @@
 #ubicacion-sidebar{
     display: flex;
     height: 100vh;
-    width: 100vw;
+    width: 20%;
     margin: 0;
 }

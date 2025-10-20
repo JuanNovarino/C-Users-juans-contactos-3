@@ -31,7 +31,13 @@ export const routes: Routes = [
         [
                  { 
                      path: "",
-                     component: Contactos
+                     redirectTo: "contacts",
+                     pathMatch:"full",
+                    
+                 },
+                 {
+                    path: "contacts",
+                    component : Contactos
                  },
 
                  {
@@ -51,5 +57,5 @@ export const routes: Routes = [
 
                  //falta grupos 
         ]
-    },
+    }
 ];
