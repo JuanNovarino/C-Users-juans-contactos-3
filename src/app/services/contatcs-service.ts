@@ -42,11 +42,6 @@ export class ContatcsService {
   
   /** Crea un contacto */
   async createContact(nuevoContacto:NewContact) {
-    //Diagnostico del token
-    console.log("--- TOKEN USADO EN POST ---");
-    console.log(this.authService.token);
-    console.log("---------------------------");
-
     const res = await fetch(this.URL_BASE, 
       {
         method:"POST",
@@ -56,11 +51,10 @@ export class ContatcsService {
         },
         body: JSON.stringify(nuevoContacto)
       });
-      
     if(!res.ok) return;
-    const resContact:Contact = await res.json();
-    this.contacto.push(resContact);
-    return resContact;
+    const contactoEditado:Contact = await res.json();
+    this.contacto.push(contactoEditado);
+    return contactoEditado;
   }
 
   /** Edita un contacto */
@@ -77,10 +71,8 @@ export class ContatcsService {
     if(!res.ok) return;
     /** Edita la lista actual de contactos reemplazando sólamente el que editamos */
     this.contacto = this.contacto.map(contact => { //se pone contact pq estoy declarando una variable temporal que np esta relacionada con mi "contacto"
-      if(contact.id === contactoEditado.id) {
-        return contactoEditado;
-      };
-      return contact;
+      if(contact.id === contactoEditado.id) return contactoEditado; 
+      return contact
     });
     return contactoEditado;
   }

@@ -1,0 +1,109 @@
+.contact-container {
+    background: linear-gradient(145deg, #fefefe 0%, #f0f0f0 100%);
+    
+    
+    margin-top: 20px; 
+
+    width: 95%; 
+    max-width: 1000px;
+    margin-left: 20px; 
+    
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    
+    padding: 10px;
+}
+
+/* Encabezado de la lista (Cabecera) */
+.contact-header {
+    display: grid;
+    /* Usamos grid para una estructura de tabla uniforme */
+    grid-template-columns: 2fr 1.5fr 2fr 1fr 1fr; 
+    gap: 10px;
+    
+    /* Estilo de tarjeta y color morado */
+    background: #5d3a9b; /* Color base morado */
+    color: white;
+    font-weight: 700;
+    padding: 15px;
+    /* Quitamos el border-radius inferior para que se una a la lista */
+    border-radius: 10px 10px 0 0; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más sutil en el header */
+    margin-bottom: 0; /* Aseguramos que se pegue a la lista */
+}
+
+/* Contenedor UL que simula el cuerpo de la tabla */
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para los enlaces/filas de la lista */
+.contact-list a {
+    text-decoration: none;
+    display: block; 
+    transition: transform 0.2s, box-shadow 0.2s;
+    /* Aseguramos que las filas sean blancas para contrastar con el fondo del contenedor */
+    background-color: white; 
+    margin-bottom: 0;
+}
+
+.contact-list a:hover {
+    /* Efecto suave de elevación y resaltado */
+    transform: translateX(3px);
+    background-color: #f3e5f5; /* Resaltado suave al pasar el ratón */
+    box-shadow: none;
+}
+
+/* Estilo para cada fila (Componente app-lista-de-contactos) */
+app-lista-de-contactos {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 2fr 1fr 1fr;
+    gap: 10px;
+    padding: 12px 15px;
+    color: #333;
+    /* Separador sutil entre filas */
+    border-bottom: 1px solid #e0e0e0; 
+}
+
+
+h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 5px;
+    
+}
+
+.botonnuevocont{
+    margin-top: auto; 
+    
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    
+    
+    background-color: #5d3a9b; 
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.botonnuevocont:hover {
+    background-color: #b082f0; 
+}
+
+.titulo-contactos{
+    color: white; /* Para que se vea sobre el fondo morado */
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px; /* Separación del cuadro de la lista */
+    margin-top: 0px;
+    padding-left: 15px;
+}

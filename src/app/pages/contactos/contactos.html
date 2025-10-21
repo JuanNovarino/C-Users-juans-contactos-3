@@ -1,13 +1,18 @@
 
    <!-- <a routerLink="login">Ir a login</a> -->
-   <div>
+<div class="titulo-contactos">
+    <h2>Contactos</h2>
+    
+</div>
+<div class="contact-container">
+   <div class="contact-header">
         <span>Nombre</span>
         <span>Teléfono</span>
         <span>Email</span>
         <span>Grupos</span>
         <span>Acciones</span>
     </div>
-    <ul>
+    <ul class="contact-list">
 
         @for (contactoindividual of contactsService.contacto; track $index) 
         {
@@ -17,9 +22,12 @@
         }
     </ul>
 
-    <a routerLink="/contacts/new">+</a>
-
-
+    <a routerLink="/contacts/new">
+        <div class="botonnuevocont">
+            Nuevo Contacto
+        </div>
+    </a>
+</div>
 
 
 

@@ -1,4 +1,4 @@
-.sidebar{
+/*.sidebar{
   width: 220px;
   background:#ff0092;
   padding: 20px;
@@ -27,3 +27,79 @@ main{
     width: 20%;
     margin: 0;
 }
+    */
+
+    .flex {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+main {
+    flex-grow: 1; 
+    padding: 20px;
+    background: radial-gradient(circle at center, #7f00ff 0%, #460087 100%);
+    color: #333; 
+    overflow-y: auto;
+}
+
+.sidebar {
+    width: 250px; 
+    padding: 20px;
+    box-sizing: border-box; 
+    min-height: 100vh;
+    background-color:#2d2d29; 
+    color: white; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 3. Estilos de Tipografía y Enlaces */
+.sidebar h2 {
+    font-size: 24px;
+    color: white; 
+    font-weight: 700;
+    margin-bottom: 5px; /* Pequeña separación del título */
+    text-transform: uppercase;
+}
+
+.sidebar a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #e0e0e0; /* Color muy claro para enlaces */
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: 500;
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Efecto sutil al pasar el mouse */
+    color: white;
+}
+
+/* 4. Estilo Específico del Botón Logout */
+.boton-logout {
+    margin-top: auto; 
+    
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    
+    
+    background-color:  #5d3a9b; 
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.boton-logout:hover {
+    background-color: #b082f0; 
+}
+

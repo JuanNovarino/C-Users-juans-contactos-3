@@ -1,11 +1,16 @@
 
             <li>
-                <span>{{contact().id}}</span>
-                <span>{{contact().name}}</span>
-                <span>{{contact().lastname}}</span>
-                <span>{{contact().address}}</span>
-                <span>{{contact().email}}</span>
+                <span>{{contact().firstName}} {{contact().lastName}}</span>
                 <span>{{contact().number}}</span>
-                <span>{{contact().company}}</span>
-                <span><button (click)="contactservice.deleteContact(contact().id)">borrar</button></span>
+                <span>{{contact().email}}</span>
+                <span>-</span>
+                <span>
+                     <button (click)="openDeleteModal()">Borrar</button>
+                     <a [routerLink]="['/contacts',contact().id,'edit']">Editar</a>
+                </span>
+                <span>
+                  @if (contact().isFavourite === true) {
+                     ⭐
+                    }
+                </span>
             </li> 

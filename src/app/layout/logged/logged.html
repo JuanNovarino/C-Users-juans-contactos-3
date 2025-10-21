@@ -1,19 +1,19 @@
-<p>logged works!</p>
+
 <div class="flex">
 <section id="ubicacion-sidebar">
 
     <div class="sidebar">
-        <ul>
+        
 
-        <li><a routerLink="andaporfavor">Login</a></li>
+        <h2>Agenda</h2>
+        <a routerLink="/">Contactos</a>
+        <button class="boton-logout" (click)="authService.logout()">Log Out</button>
 
-        <li><a routerLink="/">Contactos</a></li>
+        <!--li><a routerLink="detalles-contactos">Detalles</a></li-->
 
-        <li><a routerLink="detalles-contactos">Detalles</a></li>
+        
 
-        <li><a routerLink="registro">Registrarse</a></li>
-
-        </ul>
+    
     </div>
 
     
@@ -25,16 +25,16 @@
 
     </main>
 </div>
-<section>
+
+
+<!--section>
 
    <div>
     <nav>
-        <a routerLink = "/">Contactos</a>
-        
         <button (click)="authService.logout()">Log Out</button>
     </nav>
 </div> 
-</section>
+</section-->
 
 
 
