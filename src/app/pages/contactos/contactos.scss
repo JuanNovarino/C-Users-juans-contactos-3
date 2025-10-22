@@ -42,13 +42,13 @@
 
 .contact-list a {
     text-decoration: none;
-    display: block; 
+    display: inline-block; 
     transition: transform 0.2s, box-shadow 0.2s;
     background-color: white; 
     margin-bottom: 0;
 }
 
-.contact-list a:hover {
+app-lista-de-contactos:hover {
     transform: translateX(3px);
     background-color: #f3e5f5; 
     box-shadow: none;

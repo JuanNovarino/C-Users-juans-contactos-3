@@ -16,9 +16,9 @@
 
         @for (contactoindividual of contactsService.contacto; track $index) 
         {
-            <a [routerLink]="['/contacts',contactoindividual.id]">
+            
                 <app-lista-de-contactos [contact]="contactoindividual"></app-lista-de-contactos>
-            </a>
+            
         }
     </ul>
 

@@ -32,7 +32,7 @@ export class Registro {
         this.isLoading = true;
         const res = await this.usersService.registro(form.value);
         if(res.ok){
-          this.router.navigate(["/andaporfavor"])
+          this.router.navigate(["/login"])
         }
         this.isLoading = false;
         this.errorRegister = true;

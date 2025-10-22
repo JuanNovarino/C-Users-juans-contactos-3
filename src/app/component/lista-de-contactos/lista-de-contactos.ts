@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrl: './lista-de-contactos.scss'
 })
 export class ListaDeContactos {
-
+  
   contactservice = inject(ContatcsService)
   contact = input.required<Contact>()
   aleatorio = Math.random();

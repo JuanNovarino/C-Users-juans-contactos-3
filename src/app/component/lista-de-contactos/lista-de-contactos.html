@@ -1,17 +1,17 @@
 
     
     
-    <span class="contact-cell name-cell"> 
+    <span class="contact-cell name-cell" [routerLink]="['/contacts',contact().id]"> 
         <img src="https://placehold.co/40x40/5d3a9b/ffffff/png?text={{contact().firstName.charAt(0)}}" alt="noanda">
         {{contact().firstName}} {{contact().lastName}}
     </span>
     
-    <span class="contact-cell">{{contact().number}}</span>
+    <span [routerLink]="['/contacts',contact().id]" class="contact-cell">{{contact().number}}</span>
     
     
-    <span class="contact-cell">{{contact().email}}</span>
+    <span [routerLink]="['/contacts',contact().id]" class="contact-cell">{{contact().email}}</span>
     
-    <span class="contact-cell favorite-icon">
+    <span [routerLink]="['/contacts',contact().id]" class="contact-cell favorite-icon">
         @if (contact().isFavorite === true) {
             ⭐
         }

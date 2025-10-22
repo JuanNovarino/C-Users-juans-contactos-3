@@ -1,17 +1,19 @@
 import { Routes } from '@angular/router';
-import { Andaporfavor } from './pages/andaporfavor/andaporfavor';
+import { Login } from './pages/andaporfavor/login';
 import { Contactos } from './pages/contactos/contactos';
 import { DetallesContactos } from './pages/detalles-contactos/detalles-contactos';
 import { Registro } from './pages/registro/registro';
 import { Logged } from './layout/logged/logged';
 //import { GroupsPage } from './pages/groups/groups';
 import { NuevoContactoEditado } from './pages/nuevo-contacto-editado/nuevo-contacto-editado';
+import { loggedUserGuardGuard } from './app/logged-user-guard-guard';
+import { onlyLoggedUserGuardGuard } from './guard/guards/only-logged-user-guard-guard';
 
 export const routes: Routes = [
     
     {
-        path: "andaporfavor",
-        component: Andaporfavor
+        path: "login",
+        component: Login
         //canActivate: [onlyPublicUserGuard]
 
     },
@@ -26,7 +28,7 @@ export const routes: Routes = [
     {
         path: "",
         component: Logged,
-        //canActivate: [onlyPublicUserGuard]
+        canActivateChild: [onlyLoggedUserGuardGuard],
         children:
         [
                  { 
@@ -57,5 +59,6 @@ export const routes: Routes = [
 
                  //falta grupos 
         ]
+        
     }
 ];

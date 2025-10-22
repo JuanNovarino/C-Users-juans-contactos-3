@@ -5,12 +5,12 @@ import { AuthService } from '../../services/auth-service';
 //import { Spinner } from "../../components/spinner/spinner";
 
 @Component({
-  selector: 'app-andaporfavor',
+  selector: 'app-login',
   imports: [RouterModule, FormsModule,], //   spinner
-  templateUrl: './andaporfavor.html',
-  styleUrl: './andaporfavor.scss'
+  templateUrl: './login.html',
+  styleUrl: './login.scss'
 })
-export class Andaporfavor {
+export class Login {
 
   errorLogin = false;
   AuthService = inject(AuthService);

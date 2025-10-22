@@ -1,12 +1,12 @@
-/* 1. Contenedor Principal (Tarjeta Glassmorphism) */
+
 .contenedor-tarjeta {
-    /* Centrado en la página */
+    
     margin: 50px auto; 
     padding: 30px;
     width: 90%; 
     max-width: 800px;
     
-    /* Efecto Glassmorphism */
+    
     background: rgba(255, 255, 255, 0.15); 
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
@@ -17,23 +17,21 @@
     text-align: center;
 }
 
-/* 2. Título */
+
 h2 {
     color: white;
     font-size: 24px;
     margin-bottom: 30px; 
 }
 
-/* 3. Diseño de Grid (Dos Columnas) */
+
 form {
     display: grid; 
     grid-template-columns: repeat(2, 1fr); 
-    /* 🚨 SOLUCIÓN AL ESPACIADO: Aumentamos el gap horizontal y vertical */
     gap: 30px; 
     align-items: flex-start;
 }
 
-/* 4. Estilos de Inputs y Labels */
 form > div {
     display: flex;
     flex-direction: column;
@@ -48,7 +46,7 @@ label {
     color: white;
 }
 
-/* Estilo de Inputs */
+
 input[type="text"],
 input[type="email"] {
     width: 100%;
@@ -56,7 +54,6 @@ input[type="email"] {
     border: none;
     border-radius: 8px;
     
-    /* Fondo Glassmorphism Input */
     background: rgba(255, 255, 255, 0.25); 
     color: white;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); 
@@ -67,7 +64,7 @@ input[type="email"] {
     }
 }
 
-/* Regla full-width para botones y errores */
+
 .full-width {
     grid-column: 1 / span 2; 
     width: 100%;
@@ -75,7 +72,7 @@ input[type="email"] {
     margin-top: 10px;
 }
 
-/* Estilo del Botón */
+
 button {
     margin-top: 20px;
     padding: 12px;
@@ -86,23 +83,22 @@ button {
     border-radius: 8px;
     cursor: pointer;
     
-    /* Color de botón */
+
     background: #ffffff;
     color: #5d3a9b;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
 
     &:disabled {
-        opacity: 0.6; /* Hacemos el botón más transparente */
+        opacity: 0.6; 
         cursor: not-allowed;
         box-shadow: none;
-        background: rgba(255, 255, 255, 0.9); /* Un fondo ligeramente más apagado */
+        background: rgba(255, 255, 255, 0.9); 
     }
 
     
 }
 
-/* Estilo del Checkbox (Favorito) */
 input[type="checkbox"] {
     margin-right: 10px;
     transform: scale(1.3);

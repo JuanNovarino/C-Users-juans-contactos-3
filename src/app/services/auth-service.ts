@@ -36,7 +36,7 @@ export class AuthService implements OnInit {
   logout(){
     this.token = null;
     localStorage.removeItem("token");
-    this.router.navigate(["/andaporfavor"]);
+    this.router.navigate(["/login"]);
   }
 
   revisionToken() {
