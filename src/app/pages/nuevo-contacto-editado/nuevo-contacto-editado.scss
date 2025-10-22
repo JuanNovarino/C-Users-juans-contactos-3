@@ -1,0 +1,110 @@
+/* 1. Contenedor Principal (Tarjeta Glassmorphism) */
+.contenedor-tarjeta {
+    /* Centrado en la página */
+    margin: 50px auto; 
+    padding: 30px;
+    width: 90%; 
+    max-width: 800px;
+    
+    /* Efecto Glassmorphism */
+    background: rgba(255, 255, 255, 0.15); 
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    color: white; 
+    text-align: center;
+}
+
+/* 2. Título */
+h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 30px; 
+}
+
+/* 3. Diseño de Grid (Dos Columnas) */
+form {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    /* 🚨 SOLUCIÓN AL ESPACIADO: Aumentamos el gap horizontal y vertical */
+    gap: 30px; 
+    align-items: flex-start;
+}
+
+/* 4. Estilos de Inputs y Labels */
+form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: white;
+}
+
+/* Estilo de Inputs */
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px 15px; 
+    border: none;
+    border-radius: 8px;
+    
+    /* Fondo Glassmorphism Input */
+    background: rgba(255, 255, 255, 0.25); 
+    color: white;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+    
+    &:focus {
+        background: rgba(255, 255, 255, 0.4);
+        outline: none;
+    }
+}
+
+/* Regla full-width para botones y errores */
+.full-width {
+    grid-column: 1 / span 2; 
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Estilo del Botón */
+button {
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    
+    /* Color de botón */
+    background: #ffffff;
+    color: #5d3a9b;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+
+    &:disabled {
+        opacity: 0.6; /* Hacemos el botón más transparente */
+        cursor: not-allowed;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.9); /* Un fondo ligeramente más apagado */
+    }
+
+    
+}
+
+/* Estilo del Checkbox (Favorito) */
+input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.3);
+    cursor: pointer;
+}

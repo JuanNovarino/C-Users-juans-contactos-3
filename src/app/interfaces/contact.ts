@@ -7,7 +7,7 @@ export interface Contact{
     image: string,
     number: string,
     company: string,
-    isFavourite: boolean,
+    isFavorite: boolean,
 
 }
 

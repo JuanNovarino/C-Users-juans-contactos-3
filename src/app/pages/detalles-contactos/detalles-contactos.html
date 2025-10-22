@@ -1,1 +1,47 @@
-<p>detalles-contactos works!</p>
+<div id="contenedor">
+    
+    
+    @if(cargandoContacto){
+        <p class="loading-message">Cargando contacto...</p>
+    } @else if(!contacto) {
+        <p class="error-message">No se encontró el contacto</p>
+    } @else {
+        
+        <div class="tarjeta-contacto">
+            
+            <div class="cont-imagen">
+                <img 
+                    src="https://placehold.co/100x100/5d3a9b/ffffff/png?text={{contacto!.firstName.charAt(0)}}" 
+                    alt="{{contacto!.firstName}} Profile" 
+                    class="redondeado-imagen"
+                />
+            </div>
+            
+            
+            <h1 class="nombre-cont">{{contacto!.firstName}} {{contacto!.lastName}}</h1>
+            
+            
+            <div class="info-cont">
+                <p><span>Email: {{contacto.email}}</span></p>
+                <p><span>Teléfono: {{contacto.number}}</span></p>
+                <p><span>Compañía: {{contacto.company}}</span></p>
+                <p><span>Dirección: {{contacto.address}}</span></p>
+            </div>
+
+            
+            <div class="section-fav">
+                @if (contacto.isFavorite) {
+                    <p class="estado-fav">⭐ Favorito</p>
+                    <button (click)="toggleFavorite()" class="unfavorite-btn">Desmarcar favorito</button>
+                } @else {
+                    <button (click)="toggleFavorite()" class="favorite-btn">Marcar como favorito</button>
+                }
+            </div>
+
+            <div class="grupo-botones">
+                <a [routerLink]="['/contacts',idContacto(),'edit']" class="action-link edit-btn">Editar</a>
+                <button (click)="deleteContact()" class="action-btn delete-btn">Eliminar</button>
+            </div>
+        </div>
+    }
+</div>

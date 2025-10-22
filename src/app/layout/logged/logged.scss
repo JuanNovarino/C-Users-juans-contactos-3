@@ -57,19 +57,19 @@ main {
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* 3. Estilos de Tipografía y Enlaces */
+
 .sidebar h2 {
     font-size: 24px;
     color: white; 
     font-weight: 700;
-    margin-bottom: 5px; /* Pequeña separación del título */
+    margin-bottom: 5px; 
     text-transform: uppercase;
 }
 
 .sidebar a {
     font-size: 18px;
     text-decoration: none;
-    color: #e0e0e0; /* Color muy claro para enlaces */
+    color: #e0e0e0; 
     padding: 8px 10px;
     border-radius: 4px;
     transition: background-color 0.2s, color 0.2s;
@@ -77,11 +77,11 @@ main {
 }
 
 .sidebar a:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* Efecto sutil al pasar el mouse */
+    background-color: rgba(255, 255, 255, 0.15); 
     color: white;
 }
 
-/* 4. Estilo Específico del Botón Logout */
+
 .boton-logout {
     margin-top: auto; 
     

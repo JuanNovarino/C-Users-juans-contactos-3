@@ -15,56 +15,52 @@
     padding: 10px;
 }
 
-/* Encabezado de la lista (Cabecera) */
+
 .contact-header {
     display: grid;
-    /* Usamos grid para una estructura de tabla uniforme */
+    
     grid-template-columns: 2fr 1.5fr 2fr 1fr 1fr; 
     gap: 10px;
     
-    /* Estilo de tarjeta y color morado */
-    background: #5d3a9b; /* Color base morado */
+    
+    background: #5d3a9b; 
     color: white;
     font-weight: 700;
     padding: 15px;
-    /* Quitamos el border-radius inferior para que se una a la lista */
     border-radius: 10px 10px 0 0; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más sutil en el header */
-    margin-bottom: 0; /* Aseguramos que se pegue a la lista */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 0; 
 }
 
-/* Contenedor UL que simula el cuerpo de la tabla */
+
 .contact-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-/* Estilo para los enlaces/filas de la lista */
+
 .contact-list a {
     text-decoration: none;
     display: block; 
     transition: transform 0.2s, box-shadow 0.2s;
-    /* Aseguramos que las filas sean blancas para contrastar con el fondo del contenedor */
     background-color: white; 
     margin-bottom: 0;
 }
 
 .contact-list a:hover {
-    /* Efecto suave de elevación y resaltado */
     transform: translateX(3px);
-    background-color: #f3e5f5; /* Resaltado suave al pasar el ratón */
+    background-color: #f3e5f5; 
     box-shadow: none;
 }
 
-/* Estilo para cada fila (Componente app-lista-de-contactos) */
+
 app-lista-de-contactos {
     display: grid;
     grid-template-columns: 2fr 1.5fr 2fr 1fr 1fr;
     gap: 10px;
     padding: 12px 15px;
     color: #333;
-    /* Separador sutil entre filas */
     border-bottom: 1px solid #e0e0e0; 
 }
 
@@ -100,10 +96,10 @@ h2{
 }
 
 .titulo-contactos{
-    color: white; /* Para que se vea sobre el fondo morado */
+    color: white; 
     font-size: 28px;
     font-weight: 700;
-    margin-bottom: 20px; /* Separación del cuadro de la lista */
+    margin-bottom: 20px; 
     margin-top: 0px;
     padding-left: 15px;
 }

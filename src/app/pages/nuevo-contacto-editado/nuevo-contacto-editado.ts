@@ -2,7 +2,7 @@ import { Component, ElementRef, inject, input, OnInit, viewChild } from '@angula
 import { Form, FormsModule, NgForm } from '@angular/forms';
 import { Contact, NewContact } from '../../interfaces/contact';
 import { ContatcsService } from '../../services/contatcs-service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector:  'app-nuevo-contacto-editado',
@@ -12,32 +12,40 @@ import { Router } from '@angular/router';
 })
 export class NuevoContactoEditado implements OnInit {
   contactsService = inject(ContatcsService);
-  router = inject(Router)
+  router = inject(Router);
+  route = inject(ActivatedRoute);
   errorEnBack = false;
-  idContacto = input<number>();
-  contactoOriginal:Contact|undefined = undefined;
+  idContacto: string | null = null;
+  contactoOriginal: Contact | undefined = undefined;
   form = viewChild<NgForm>('newContactForm');
+
+  isSubmitting = false;
 
   
   async ngOnInit() {
-    if(this.idContacto()){
-      this.contactoOriginal = await this.contactsService.getContactById(this.idContacto()!);
-      this.form()?.setValue({
-        firstName: this.contactoOriginal?.firstName,
-        lastName: this.contactoOriginal?.lastName,
-        address: this.contactoOriginal?.address,
-        email: this.contactoOriginal?.email,
-        image: this.contactoOriginal?.image,
-        number: this.contactoOriginal?.number,
-        company: this.contactoOriginal?.company,
-        isFavourite: this.contactoOriginal?.isFavourite
-      })
+    // Obtener el ID del contacto desde los parámetros de la ruta
+    this.idContacto = this.route.snapshot.paramMap.get('idContacto');
+    
+    if(this.idContacto){
+      this.contactoOriginal = await this.contactsService.getContactById(this.idContacto);
+      
+        this.form()?.setValue({
+          firstName: this.contactoOriginal?.firstName,
+          lastName: this.contactoOriginal?.lastName,
+          address: this.contactoOriginal?.address,
+          email: this.contactoOriginal?.email,
+          image: this.contactoOriginal?.image,
+          number: this.contactoOriginal?.number,
+          company: this.contactoOriginal?.company,
+          isFavourite: this.contactoOriginal?.isFavorite
+        });
+    
     }
   }
 
 async handleFormSubmission(form:NgForm){
   this.errorEnBack = false;
-    const nuevoContacto: NewContact ={
+     const nuevoContacto: NewContact ={
       firstName: form.value.firstName,
       lastName: form.value.lastName,
       address: form.value.address,
@@ -45,25 +53,29 @@ async handleFormSubmission(form:NgForm){
       image: form.value.image,
       number: form.value.number,
       company: form.value.company,
-      isFavourite: form.value.isFavourite
+      isFavorite: form.value.isFavourite,
     }
     
     let res;
     
     this.router.navigate(["/contacts"]);
     
-    if(this.idContacto()){
-      res = await this.contactsService.editContact({...nuevoContacto,id:this.idContacto()!.toString()});
+    if(this.idContacto){
+      res = await this.contactsService.editContact({...nuevoContacto,id:this.idContacto});
     } else {
       res = await this.contactsService.createContact(nuevoContacto);
     }
 
+    
+    
   
   if(!res) {
       this.errorEnBack = true;
       return
     };
+    
   }
+
   async createContact(form:NgForm){
     
   }

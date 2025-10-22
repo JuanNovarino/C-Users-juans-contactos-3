@@ -15,6 +15,14 @@ export class ListaDeContactos {
   contactservice = inject(ContatcsService)
   contact = input.required<Contact>()
   aleatorio = Math.random();
+  contacto: Contact | undefined;
+
+  /*async toggleFavorite(){
+    if(this.contacto){
+      const res = await this.contactservice.setFavourite(this.contacto.id);
+      if(res) this.contacto.isFavorite = !this.contacto.isFavorite;
+    }
+  }*/
 
    openDeleteModal(){
     

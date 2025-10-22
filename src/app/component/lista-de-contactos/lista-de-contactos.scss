@@ -1,0 +1,118 @@
+.contact-row {
+    padding: 10px;
+    margin-bottom: 2px; 
+    
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 3fr 0.5fr 1.5fr 0.5fr; 
+    align-items: center;
+    width: 100%; 
+    
+    background-color: white;
+    border-bottom: 1px solid #eee; 
+    transition: background-color 0.2s;
+    font-size: 14px; 
+    color: #333;
+    
+    &:hover {
+        background-color: #f8f8f8;
+    }
+}
+
+/* Estilo para la celda del Nombre y Avatar */
+.contact-row .name-cell {
+    /* 🚨 Hacemos el nombre Flex para alinear el avatar y el texto 🚨 */
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espacio entre el avatar y el nombre */
+    font-weight: 600; 
+
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+    font-weight: 600; 
+    
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-row .contact-cell {
+    padding-right: 10px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo para la imagen del Avatar */
+.contact-row .contact-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Circular */
+    object-fit: cover;
+    border: 1px solid #ddd; 
+}
+
+
+/* Estilo de cada celda de texto */
+.contact-row .contact-cell {
+    padding-right: 10px;
+    /* Aseguramos que el texto largo se oculte con puntos suspensivos */
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    /* Aseguramos que el contenido de la celda esté centrado verticalmente */
+    display: flex;
+    align-items: center;
+}
+
+/* Regla para los botones de acción */
+.contact-row .action-buttons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-start;
+}
+/* 🚨 SOLUCIÓN: CENTRAR LA CELDA DE ACCIONES 🚨 */
+.contact-row .action-buttons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center; /* ⬅️ CLAVE: Centra el grupo de botones */
+}
+
+/* 🚨 ESTILOS DE BOTONES MÁS VISIBLES Y AGRUPADOS 🚨 */
+.contact-row .action-buttons button,
+.contact-row .action-buttons a {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+}
+
+/* Botón Borrar */
+.contact-row .action-buttons button {
+    background-color: #e74c3c; /* Rojo */
+    color: white;
+    border: 1px solid #c0392b;
+}
+
+/* Botón Editar */
+.contact-row .action-buttons a {
+    background-color: #3498db; /* Azul */
+    color: white;
+    border: 1px solid #2980b9;
+}
+
+/* Hover effect */
+.contact-row .action-buttons button:hover {
+    background-color: #c0392b;
+}
+.contact-row .action-buttons a:hover {
+    background-color: #2980b9;
+}

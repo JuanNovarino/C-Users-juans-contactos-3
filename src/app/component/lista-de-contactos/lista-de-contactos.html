@@ -1,16 +1,32 @@
 
-            <li>
-                <span>{{contact().firstName}} {{contact().lastName}}</span>
-                <span>{{contact().number}}</span>
-                <span>{{contact().email}}</span>
-                <span>-</span>
-                <span>
-                     <button (click)="openDeleteModal()">Borrar</button>
-                     <a [routerLink]="['/contacts',contact().id,'edit']">Editar</a>
-                </span>
-                <span>
-                  @if (contact().isFavourite === true) {
-                     ⭐
-                    }
-                </span>
-            </li> 
+    
+    
+    <span class="contact-cell name-cell"> 
+        <img src="https://placehold.co/40x40/5d3a9b/ffffff/png?text={{contact().firstName.charAt(0)}}" alt="noanda">
+        {{contact().firstName}} {{contact().lastName}}
+    </span>
+    
+    <span class="contact-cell">{{contact().number}}</span>
+    
+    
+    <span class="contact-cell">{{contact().email}}</span>
+    
+    <span class="contact-cell favorite-icon">
+        @if (contact().isFavorite === true) {
+            ⭐
+        }
+        @else{
+            <span></span>
+        }
+    </span>
+    
+    
+    <span class="contact-cell action-buttons"> 
+        <button (click)="openDeleteModal()">Borrar</button>
+        <a [routerLink]="['/contacts',contact().id,'edit']">Editar</a>
+    </span>
+    
+    
+
+
+

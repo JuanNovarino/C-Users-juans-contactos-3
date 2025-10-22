@@ -104,7 +104,7 @@ export class ContatcsService {
     /** Edita la lista actual de contactos reemplazando sólamente el favorito del que editamos */
     this.contacto = this.contacto.map(contact => {
       if(contact.id === id) {
-        return {...contact, isFavorite: !contact.isFavourite};
+        return {...contact, isFavorite: !contact.isFavorite};
       };
       return contact;
     });

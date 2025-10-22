@@ -1,7 +1,7 @@
 
 <!-- Toda la parte de nuevo contacto luego irá en una nueva pestaña o en una ventana emergente. A elección. -->
-<div id="container" class="card">
- @if(idContacto()){
+<div class="contenedor-tarjeta">
+ @if(idContacto){
    <h2>Editar contacto</h2>
   } @else {
    <h2>Nuevo contacto</h2>
@@ -47,7 +47,7 @@
       <p class="error">Error indeterminado, intente nuevamente.</p>
     } 
  
-  @if(idContacto()){
+  @if(idContacto){
     <button [disabled]="newContactForm.invalid">Editar</button>
   } @else {
   <button [disabled]="newContactForm.invalid">Crear</button>
