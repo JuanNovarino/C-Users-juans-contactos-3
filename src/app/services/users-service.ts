@@ -8,7 +8,7 @@ export class UsersService {
 
   /** Registar el usuario en el back */
   async registro(registerData:NewUser){
-    return await fetch("https://agenda-api.somee.com/api/Users", 
+    return await fetch("https://w370351.ferozo.com/api", 
       {
         method:"POST",
         headers: {
